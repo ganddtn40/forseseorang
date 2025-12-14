@@ -2,73 +2,268 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Untuk Kamu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Untuk Kamu Sayang 💕</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     body {
-      background-color: #0f172a;
-      color: #e5e7eb;
-      font-family: monospace;
+      background: linear-gradient(135deg, #ffd1dc 0%, #ffb6c1 50%, #ffc0cb 100%);
+      color: #4a4a4a;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-    }
-    .box {
-      background: #020617;
+      min-height: 100vh;
       padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hearts {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+    
+    .heart {
+      position: absolute;
+      color: #ff69b4;
+      font-size: 20px;
+      animation: float 6s infinite ease-in-out;
+      opacity: 0.6;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(10deg); }
+    }
+    
+    .box {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 30px;
+      box-shadow: 0 20px 60px rgba(255, 105, 180, 0.3);
       width: 90%;
       max-width: 600px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      border: 4px solid #ffb6c1;
     }
+    
+    h2 {
+      color: #ff69b4;
+      margin-bottom: 25px;
+      font-size: 32px;
+      text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.2);
+      animation: bounce 2s infinite;
+    }
+    
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    .subtitle {
+      color: #ff8fab;
+      font-size: 16px;
+      margin-bottom: 30px;
+      font-style: italic;
+    }
+    
+    .btn {
+      background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
+      color: white;
+      border: none;
+      padding: 18px 45px;
+      font-size: 20px;
+      font-family: 'Comic Sans MS', cursive;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 8px 20px rgba(255, 20, 147, 0.4);
+      font-weight: bold;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .btn::before {
+      content: '✨';
+      position: absolute;
+      left: -30px;
+      transition: left 0.3s;
+    }
+    
+    .btn::after {
+      content: '✨';
+      position: absolute;
+      right: -30px;
+      transition: right 0.3s;
+    }
+    
+    .btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 10px 30px rgba(255, 20, 147, 0.6);
+    }
+    
+    .btn:hover::before {
+      left: 10px;
+    }
+    
+    .btn:hover::after {
+      right: 10px;
+    }
+    
+    .btn:active {
+      transform: scale(1.05);
+    }
+    
+    #textContainer {
+      display: none;
+      text-align: left;
+      margin-top: 30px;
+      background: linear-gradient(135deg, #fff5f7 0%, #ffe4e9 100%);
+      padding: 25px;
+      border-radius: 20px;
+      border: 3px dashed #ffb6c1;
+    }
+    
+    #textContainer.show {
+      display: block;
+      animation: fadeIn 0.5s;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    #text {
+      color: #ff1493;
+      font-size: 16px;
+      line-height: 1.8;
+      font-weight: bold;
+    }
+    
     .cursor {
       display: inline-block;
       width: 10px;
-      background: #e5e7eb;
+      background: #ff69b4;
       animation: blink 1s infinite;
       margin-left: 3px;
     }
+    
     @keyframes blink {
       0%, 50%, 100% { opacity: 1; }
       25%, 75% { opacity: 0; }
     }
+    
+    .sparkles {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      font-size: 30px;
+      animation: rotate 3s infinite linear;
+    }
+    
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    
+    .footer {
+      margin-top: 20px;
+      color: #ff8fab;
+      font-size: 14px;
+      display: none;
+    }
+    
+    .footer.show {
+      display: block;
+      animation: fadeIn 1s 3s both;
+    }
   </style>
 </head>
 <body>
-
-<div class="box">
-  <pre id="text"></pre><span class="cursor"></span>
+<div class="hearts">
+  <div class="heart" style="left: 10%; animation-delay: 0s;">💕</div>
+  <div class="heart" style="left: 20%; animation-delay: 1s;">💖</div>
+  <div class="heart" style="left: 30%; animation-delay: 2s;">💗</div>
+  <div class="heart" style="left: 40%; animation-delay: 0.5s;">💕</div>
+  <div class="heart" style="left: 50%; animation-delay: 1.5s;">💖</div>
+  <div class="heart" style="left: 60%; animation-delay: 2.5s;">💗</div>
+  <div class="heart" style="left: 70%; animation-delay: 1s;">💕</div>
+  <div class="heart" style="left: 80%; animation-delay: 2s;">💖</div>
+  <div class="heart" style="left: 90%; animation-delay: 0.8s;">💗</div>
 </div>
 
-<audio id="music" src="lagu.mp3"></audio>
+<div class="box">
+  <div class="sparkles">✨</div>
+  <h2>🤍 Haiiii 🤍</h2>
+  <p class="subtitle">Kamuu mintaa inii kann 🥰</p>
+  <button class="btn" id="showBtn">Buka Yuk! 💌</button>
+  <div id="textContainer">
+    <pre id="text"></pre><span class="cursor"></span>
+    <div class="footer" id="footer">
+      <br>
+      ── 💕 Hummm 💕 ──
+    </div>
+  </div>
+</div>
+
+<audio id="bgMusic" loop>
+  <source src="lagu.mp3" type="audio/mpeg">
+</audio>
 
 <script>
-  const pesan = `
-Jatuh cinta memang manis
-Apalagi ada kamu di sini
-Genggam tanganku sayang
-Kota ini tak sama tanpamu
-Masih rasa ingin lagi habiskan waktu di sini
-Mungkin tiga atau empat hari lagi
+  const pesan = `Jatuh cinta memang manis 🍭
+Apalagi ada kamu di sini 🌸
+Genggam tanganku sayang 🤝💕
+Kota ini tak sama tanpamu 🏙️✨
 
-Web inii buatt cewee akuu
-FANNYYSAA🤍
+Masih rasa ingin lagi habiskan waktu di sini 🥰
+Mungkin tiga atau empat hari lagi 📅💖
+
+Web ini buat cewe aku tersayang...
+FANNYYSAA 🤍💕🌹
 `;
-
+  
   let i = 0;
-  const speed = 200;
+  const speed = 80;
   const target = document.getElementById("text");
-
+  const textContainer = document.getElementById("textContainer");
+  const showBtn = document.getElementById("showBtn");
+  const bgMusic = document.getElementById("bgMusic");
+  const footer = document.getElementById("footer");
+  
   function typeEffect() {
     if (i < pesan.length) {
       target.textContent += pesan.charAt(i);
       i++;
       setTimeout(typeEffect, speed);
+    } else {
+      footer.classList.add("show");
     }
   }
-
-  typeEffect();
+  
+  showBtn.addEventListener("click", function() {
+    bgMusic.play().catch(e => console.log("Audio play failed"));
+    showBtn.style.display = "none";
+    textContainer.classList.add("show");
+    typeEffect();
+  });
+  
+  // Random heart positions
+  const hearts = document.querySelectorAll('.heart');
+  hearts.forEach(heart => {
+    heart.style.top = Math.random() * 100 + '%';
+  });
 </script>
-
 </body>
 </html>
