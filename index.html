@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Untuk Kamu Sayang 💕</title>
+  <title>FORR YOUU!! 🤍</title>
   <style>
     * {
       margin: 0;
@@ -55,6 +55,7 @@
       position: relative;
       z-index: 2;
       border: 4px solid #ffb6c1;
+      overflow: hidden;
     }
     
     h2 {
@@ -132,6 +133,9 @@
       padding: 25px;
       border-radius: 20px;
       border: 3px dashed #ffb6c1;
+      overflow-x: auto;
+      overflow-y: auto;
+      max-height: 60vh;
     }
     
     #textContainer.show {
@@ -149,6 +153,9 @@
       font-size: 16px;
       line-height: 1.8;
       font-weight: bold;
+      word-wrap: break-word;
+      white-space: pre-wrap;
+      overflow-wrap: break-word;
     }
     
     .cursor {
@@ -175,6 +182,40 @@
     @keyframes rotate {
       from { transform: rotate(0deg); }
       to { transform: rotate(360deg); }
+    }
+    
+    @media (max-width: 600px) {
+      .box {
+        padding: 30px 20px;
+        width: 95%;
+      }
+      
+      h2 {
+        font-size: 26px;
+      }
+      
+      .subtitle {
+        font-size: 14px;
+      }
+      
+      .btn {
+        padding: 15px 35px;
+        font-size: 18px;
+      }
+      
+      #textContainer {
+        padding: 20px 15px;
+        max-height: 50vh;
+      }
+      
+      #text {
+        font-size: 14px;
+        line-height: 1.6;
+      }
+      
+      .footer {
+        font-size: 12px;
+      }
     }
     
     .footer {
@@ -205,14 +246,14 @@
 
 <div class="box">
   <div class="sparkles">✨</div>
-  <h2>🤍 Haiiii 🤍</h2>
-  <p class="subtitle">Kamuu mintaa inii kann 🥰</p>
+  <h2>🤍 Haiiii Fannysaa 🤍</h2>
+  <p class="subtitle">Kamuuu mintaa iniikann 🥰</p>
   <button class="btn" id="showBtn">Buka Yuk! 💌</button>
   <div id="textContainer">
     <pre id="text"></pre><span class="cursor"></span>
     <div class="footer" id="footer">
       <br>
-      ── 💕 Hummm 💕 ──
+      ── 💕 Hummmm 💕 ──
     </div>
   </div>
 </div>
@@ -227,8 +268,7 @@ Apalagi ada kamu di sini 🌸
 Genggam tanganku sayang 🤝💕
 Kota ini tak sama tanpamu 🏙️✨
 Masih rasa ingin lagi habiskan waktu di sini 🥰
-Mungkin tiga atau empat hari lagi 📅💖
-`;
+Mungkin tiga atau empat hari lagi 📅💖`;
   
   let i = 0;
   const speed = 190;
@@ -262,7 +302,4 @@ Mungkin tiga atau empat hari lagi 📅💖
   });
 </script>
 </body>
-
 </html>
-
-
