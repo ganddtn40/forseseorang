@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Untuk Kamu</title>
+  <style>
+    body {
+      background-color: #0f172a;
+      color: #e5e7eb;
+      font-family: monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .box {
+      background: #020617;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+      width: 90%;
+      max-width: 600px;
+    }
+    .cursor {
+      display: inline-block;
+      width: 10px;
+      background: #e5e7eb;
+      animation: blink 1s infinite;
+      margin-left: 3px;
+    }
+    @keyframes blink {
+      0%, 50%, 100% { opacity: 1; }
+      25%, 75% { opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="box">
+  <pre id="text"></pre><span class="cursor"></span>
+</div>
+
+<audio id="music" src="lagu.mp3"></audio>
+
+<script>
+  const pesan = `
+Jatuh cinta memang manis
+Apalagi ada kamu di sini
+Genggam tanganku sayang
+Kota ini tak sama tanpamu
+Masih rasa ingin lagi habiskan waktu di sini
+Mungkin tiga atau empat hari lagi
+
+Web inii buatt cewee akuu
+FANNYYSAA🤍
+`;
+
+  let i = 0;
+  const speed = 200;
+  const target = document.getElementById("text");
+
+  function typeEffect() {
+    if (i < pesan.length) {
+      target.textContent += pesan.charAt(i);
+      i++;
+      setTimeout(typeEffect, speed);
+    }
+  }
+
+  typeEffect();
+</script>
+
+</body>
+</html>
